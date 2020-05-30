@@ -11,7 +11,7 @@ int main()
 	try
 	{
 		itsPointer = new something();
-		itsArray = new something[5];
+		itsArray = new something[0];
 	}
 	catch (char* exception)
 	{
@@ -26,7 +26,7 @@ int main()
 
 	delete[] itsArray;
 	std::cout << "Our array has just been deleted" << std::endl;
-
+	
 	int n;
 	std::cin >> n;
 
