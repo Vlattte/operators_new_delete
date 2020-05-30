@@ -19,13 +19,7 @@ int something::makerSometing(int one, int two)
 
 void* something::operator new(size_t size)
 {
-	if (size == 0)
-	{
-		size = 1; 
-	}
-
-	void* pointer;
-	pointer = malloc(size); 
+	void* pointer = malloc(size);
 
 	if (!pointer)
 	{
@@ -39,13 +33,7 @@ void* something::operator new(size_t size)
 
 void* something::operator new[](size_t size)
 {
-	if (size == 0)
-	{
-		size = 1;
-	}
-
-	void* pointer;
-	pointer = malloc(size);
+	void* pointer = malloc(size);
 
 	if (!pointer)
 	{
@@ -60,12 +48,15 @@ void* something::operator new[](size_t size)
 
 void something::operator delete(void* thing)
 {
-	free(thing); //memory was freed
+	if (thing != nullptr)
+	{
+		free(thing); //memory was freed
+	}
 }
 
 void something::operator delete[](void* thing)
 {
-	free(thing); //memory was freed
+	delete(thing); //memory was freed
 }
 
 something::~something()
